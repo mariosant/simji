@@ -1,0 +1,41 @@
+Project Development Standards and Constraints
+
+This document outlines the mandatory rules and the primary technology stack for all project development, enforcing a highly functional, declarative, and immutable coding style.
+
+I. Core Philosophy
+
+Language: Development must use TypeScript in strict mode for robust type safety.
+
+Style: We always prefer a functional style, focusing on pure functions and immutability.
+
+Declarative Code: All code must be declarative, describing what the program should accomplish, not how to accomplish it.
+
+Documentation: Use context7 to get documentation for libraries used.
+
+II. Mandatory Prohibitions (Non-Negotiable Constraints)
+
+To maintain a pure functional flow, the following features are strictly prohibited in all application logic:
+
+NO for or while loops: Instead, use array methods (.map(), .filter(), .reduce()), utility functions (e.g., from es-toolkit), or recursion.
+
+NO switch conditionals: Instead, use object/Map lookup patterns or chained ternary operators.
+
+NO nested if statements: Instead, use guard clauses (early return) or functional composition of predicates to flatten complexity.
+
+NO else keyword: Logic must be handled via guard clauses, ensuring the if block returns or exits.
+
+NO let keyword: Always use const to enforce immutability for all local variables.
+
+NO inline code comments. They suck.
+
+III. Technology Stack
+
+Frontend Framework: Nuxt 4 and Nuxt UI 4 are the foundation and component library.
+
+Backend & Auth: We use Appwrite for all backend services and user authentication.
+
+Core Utilities: es-toolkit is the primary library for general-purpose utility functions.
+
+Asynchronous Mapping: Use p-map specifically for parallel and concurrent asynchronous mapping operations.
+
+Composables: VueUse is the standard collection of essential Vue composition utilities.

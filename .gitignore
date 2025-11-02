@@ -1,0 +1,17 @@
+!.env.example
+*.log
+.cache
+.data
+.DS_Store
+.env
+.env.*
+.fleet
+.idea
+.nitro
+.nuxt
+.output
+/app/generated/prisma
+dev.db
+dist
+logs
+node_modules
