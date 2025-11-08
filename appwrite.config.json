@@ -1,287 +1,270 @@
 {
-    "projectId": "68f34d680034ef213d70",
-    "endpoint": "https://fra.cloud.appwrite.io/v1",
-    "projectName": "Simji",
-    "settings": {
-        "services": {
-            "account": true,
-            "avatars": true,
-            "databases": true,
-            "locale": true,
-            "health": true,
-            "storage": true,
-            "teams": true,
-            "users": true,
-            "sites": true,
-            "functions": true,
-            "graphql": true,
-            "messaging": true
-        },
-        "auth": {
-            "methods": {
-                "jwt": false,
-                "phone": false,
-                "invites": false,
-                "anonymous": false,
-                "email-otp": false,
-                "magic-url": true,
-                "email-password": false
-            },
-            "security": {
-                "duration": 31536000,
-                "limit": 10,
-                "sessionsLimit": 10,
-                "passwordHistory": 0,
-                "passwordDictionary": false,
-                "personalDataCheck": false,
-                "sessionAlerts": false,
-                "mockNumbers": []
-            }
-        }
+  "projectId": "68f34d680034ef213d70",
+  "endpoint": "https://fra.cloud.appwrite.io/v1",
+  "projectName": "Simji",
+  "settings": {
+    "services": {
+      "account": true,
+      "avatars": true,
+      "databases": true,
+      "locale": true,
+      "health": true,
+      "storage": true,
+      "teams": true,
+      "users": true,
+      "sites": true,
+      "functions": true,
+      "graphql": true,
+      "messaging": true
     },
-    "tablesDB": [
+    "auth": {
+      "methods": {
+        "jwt": false,
+        "phone": false,
+        "invites": false,
+        "anonymous": false,
+        "email-otp": false,
+        "magic-url": true,
+        "email-password": false
+      },
+      "security": {
+        "duration": 31536000,
+        "limit": 10,
+        "sessionsLimit": 10,
+        "passwordHistory": 0,
+        "passwordDictionary": false,
+        "personalDataCheck": false,
+        "sessionAlerts": false,
+        "mockNumbers": []
+      }
+    }
+  },
+  "tablesDB": [
+    {
+      "$id": "68ffbc66003050654019",
+      "name": "primary",
+      "enabled": true
+    }
+  ],
+  "tables": [
+    {
+      "$id": "presets",
+      "$permissions": ["read(\"any\")"],
+      "databaseId": "68ffbc66003050654019",
+      "name": "presets",
+      "enabled": true,
+      "rowSecurity": false,
+      "columns": [
         {
-            "$id": "68ffbc66003050654019",
-            "name": "primary",
-            "enabled": true
-        }
-    ],
-    "tables": [
-        {
-            "$id": "presets",
-            "$permissions": [
-                "read(\"any\")"
-            ],
-            "databaseId": "68ffbc66003050654019",
-            "name": "presets",
-            "enabled": true,
-            "rowSecurity": false,
-            "columns": [
-                {
-                    "key": "name",
-                    "type": "string",
-                    "required": true,
-                    "array": false,
-                    "size": 128,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "description",
-                    "type": "string",
-                    "required": true,
-                    "array": false,
-                    "size": 128,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "prompt",
-                    "type": "string",
-                    "required": true,
-                    "array": false,
-                    "size": 512,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "category",
-                    "type": "string",
-                    "required": false,
-                    "array": false,
-                    "size": 64,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "tags",
-                    "type": "string",
-                    "required": false,
-                    "array": true,
-                    "size": 128,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "preview",
-                    "type": "string",
-                    "required": true,
-                    "array": false,
-                    "size": 256,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "previewUrl",
-                    "type": "string",
-                    "required": true,
-                    "array": false,
-                    "format": "url",
-                    "default": null
-                }
-            ],
-            "indexes": []
+          "key": "name",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 128,
+          "default": null,
+          "encrypt": false
         },
         {
-            "$id": "purchases",
-            "$permissions": [
-                "create(\"users\")"
-            ],
-            "databaseId": "68ffbc66003050654019",
-            "name": "purchases",
-            "enabled": true,
-            "rowSecurity": true,
-            "columns": [
-                {
-                    "key": "preset",
-                    "type": "relationship",
-                    "required": false,
-                    "array": false,
-                    "relatedTable": "presets",
-                    "relationType": "manyToOne",
-                    "twoWay": false,
-                    "twoWayKey": "68ffbf58000b601f1568",
-                    "onDelete": "restrict",
-                    "side": "parent"
-                },
-                {
-                    "key": "status",
-                    "type": "string",
-                    "required": false,
-                    "array": false,
-                    "elements": [
-                        "new",
-                        "processing",
-                        "complete",
-                        "error"
-                    ],
-                    "format": "enum",
-                    "default": "new"
-                },
-                {
-                    "key": "selfieId",
-                    "type": "string",
-                    "required": true,
-                    "array": false,
-                    "size": 64,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "owner",
-                    "type": "string",
-                    "required": true,
-                    "array": false,
-                    "size": 28,
-                    "default": null,
-                    "encrypt": false
-                },
-                {
-                    "key": "artifactId",
-                    "type": "string",
-                    "required": false,
-                    "array": false,
-                    "size": 28,
-                    "default": null,
-                    "encrypt": false
-                }
-            ],
-            "indexes": [
-                {
-                    "key": "purchases_owner",
-                    "type": "key",
-                    "status": "available",
-                    "columns": [
-                        "owner"
-                    ],
-                    "orders": [
-                        "ASC"
-                    ]
-                }
-            ]
-        }
-    ],
-    "buckets": [
+          "key": "description",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 128,
+          "default": null,
+          "encrypt": false
+        },
         {
-            "$id": "68ffdbc200251062ce56",
-            "$permissions": [
-                "read(\"any\")",
-                "create(\"users\")",
-                "read(\"users\")",
-                "create(\"guests\")",
-                "read(\"guests\")"
-            ],
-            "fileSecurity": false,
-            "name": "files",
-            "enabled": true,
-            "maximumFileSize": 50000000,
-            "allowedFileExtensions": [],
-            "compression": "none",
-            "encryption": false,
-            "antivirus": true
-        }
-    ],
-    "functions": [
+          "key": "prompt",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 512,
+          "default": null,
+          "encrypt": false
+        },
         {
-            "$id": "690516f1001f8b76a3d6",
-            "name": "process-purchases",
-            "runtime": "node-22",
-            "specification": "s-0.5vcpu-512mb",
-            "execute": [
-                "any"
-            ],
-            "events": [
-                "databases.*.tables.*.rows.*.create"
-            ],
-            "scopes": [
-                "buckets.read",
-                "databases.write",
-                "documents.read",
-                "documents.write",
-                "files.read",
-                "files.write",
-                "rows.read",
-                "users.read"
-            ],
-            "schedule": "",
-            "timeout": 15,
-            "enabled": true,
-            "logging": true,
-            "entrypoint": "src/main.js",
-            "commands": "npm install",
-            "path": "functions/process-purchases"
-        }
-    ],
-    "sites": [
+          "key": "category",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 64,
+          "default": null,
+          "encrypt": false
+        },
         {
-            "$id": "690605dc0033f119157a",
-            "name": "Main app",
-            "framework": "nuxt",
-            "adapter": "static",
-            "buildRuntime": "node-22",
-            "installCommand": "npm install",
-            "buildCommand": "npm run generate",
-            "outputDirectory": "./dist",
-            "fallbackFile": "",
-            "specification": "s-0.5vcpu-512mb",
-            "enabled": true,
-            "timeout": 30,
-            "logging": true,
-            "path": "sites/simji",
-            "vars": [
-                {
-                    "key": "NUXT_PUBLIC_APPWRITE_ENDPOINT",
-                    "value": "https://cloud.appwrite.io/v1"
-                },
-                {
-                    "key": "NUXT_PUBLIC_APPWRITE_PROJECT_ID",
-                    "value": "68f34d680034ef213d70"
-                },
-                {
-                    "key": "NUXT_PUBLIC_APPWRITE_PROJECT_NAME",
-                    "value": "Simji"
-                }
-            ]
+          "key": "tags",
+          "type": "string",
+          "required": false,
+          "array": true,
+          "size": 128,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "preview",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 256,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "previewUrl",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "format": "url",
+          "default": null
         }
-    ]
+      ],
+      "indexes": []
+    },
+    {
+      "$id": "purchases",
+      "$permissions": ["create(\"users\")"],
+      "databaseId": "68ffbc66003050654019",
+      "name": "purchases",
+      "enabled": true,
+      "rowSecurity": true,
+      "columns": [
+        {
+          "key": "preset",
+          "type": "relationship",
+          "required": false,
+          "array": false,
+          "relatedTable": "presets",
+          "relationType": "manyToOne",
+          "twoWay": false,
+          "twoWayKey": "68ffbf58000b601f1568",
+          "onDelete": "restrict",
+          "side": "parent"
+        },
+        {
+          "key": "status",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "elements": ["new", "processing", "complete", "error"],
+          "format": "enum",
+          "default": "new"
+        },
+        {
+          "key": "selfieId",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 64,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "owner",
+          "type": "string",
+          "required": true,
+          "array": false,
+          "size": 28,
+          "default": null,
+          "encrypt": false
+        },
+        {
+          "key": "artifactId",
+          "type": "string",
+          "required": false,
+          "array": false,
+          "size": 28,
+          "default": null,
+          "encrypt": false
+        }
+      ],
+      "indexes": [
+        {
+          "key": "purchases_owner",
+          "type": "key",
+          "status": "available",
+          "columns": ["owner"],
+          "orders": ["ASC"]
+        }
+      ]
+    }
+  ],
+  "buckets": [
+    {
+      "$id": "68ffdbc200251062ce56",
+      "$permissions": [
+        "read(\"any\")",
+        "create(\"users\")",
+        "read(\"users\")",
+        "create(\"guests\")",
+        "read(\"guests\")"
+      ],
+      "fileSecurity": false,
+      "name": "files",
+      "enabled": true,
+      "maximumFileSize": 50000000,
+      "allowedFileExtensions": [],
+      "compression": "none",
+      "encryption": false,
+      "antivirus": true
+    }
+  ],
+  "functions": [
+    {
+      "$id": "690516f1001f8b76a3d6",
+      "name": "process-purchases",
+      "runtime": "node-22",
+      "specification": "s-0.5vcpu-512mb",
+      "execute": ["any"],
+      "events": ["databases.*.tables.*.rows.*.create"],
+      "scopes": [
+        "buckets.read",
+        "databases.write",
+        "documents.read",
+        "documents.write",
+        "files.read",
+        "files.write",
+        "rows.read",
+        "users.read"
+      ],
+      "schedule": "",
+      "timeout": 15,
+      "enabled": true,
+      "logging": true,
+      "entrypoint": "src/main.js",
+      "commands": "npm install",
+      "path": "functions/process-purchases"
+    }
+  ],
+  "sites": [
+    {
+      "$id": "690e1464001940e1d926",
+      "name": "webapp",
+      "framework": "sveltekit",
+      "adapter": "ssr",
+      "buildRuntime": "node-22",
+      "installCommand": "npm install",
+      "buildCommand": "npm run build",
+      "outputDirectory": "./build",
+      "fallbackFile": "",
+      "specification": "s-0.5vcpu-512mb",
+      "enabled": true,
+      "timeout": 30,
+      "logging": true,
+      "path": "sites/webapp",
+      "vars": [
+        {
+          "key": "PUBLIC_APPWRITE_ENDPOINT",
+          "value": "https://cloud.appwrite.io/v1"
+        },
+        {
+          "key": "PUBLIC_APPWRITE_PROJECT_ID",
+          "value": "68f34d680034ef213d70"
+        },
+        {
+          "key": "PUBLIC_APPWRITE_PROJECT_NAME",
+          "value": "Simji"
+        }
+      ]
+    }
+  ]
 }

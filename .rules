@@ -30,12 +30,10 @@ NO inline code comments. They suck.
 
 III. Technology Stack
 
-Frontend Framework: Nuxt 4 and Nuxt UI 4 are the foundation and component library.
+Frontend Framework: Sveltekit 5 is the foundation library.
 
 Backend & Auth: We use Appwrite for all backend services and user authentication.
 
 Core Utilities: es-toolkit is the primary library for general-purpose utility functions.
 
 Asynchronous Mapping: Use p-map specifically for parallel and concurrent asynchronous mapping operations.
-
-Composables: VueUse is the standard collection of essential Vue composition utilities.
